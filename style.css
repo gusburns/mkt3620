@@ -1,0 +1,42 @@
+/* Sage green background with centered content */
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #9caf88; /* sage green */
+  font-family: Arial, sans-serif;
+}
+
+/* Content wrapper with 10% margins on all sides */
+.wrapper {
+  margin: 10%;
+  background: white;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.15);
+}
+
+/* Navigation bar styling */
+nav {
+  background: #556b2f; /* darker sage tone */
+  padding: 12px;
+  margin-bottom: 25px;
+  border-radius: 8px;
+}
+
+.nav-list {
+  list-style: none;
+  display: flex;
+  gap: 25px;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-list a {
+  color: white;
+  text-decoration: none;
+  font-size: 18px;
+}
+
+.nav-list a:hover {
+  text-decoration: underline;
+}
