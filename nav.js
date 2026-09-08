@@ -31,4 +31,7 @@ function loadNavigation() {
       </ul>
     </nav>
   `;
-  document
+  document.body.prepend(header);
+}
+
+document.addEventListener("DOMContentLoaded", loadNavigation);
