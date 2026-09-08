@@ -5,7 +5,7 @@ function loadNavigation() {
   header.innerHTML = `
     <div class="top-bar">
       <div class="logo">
-        <img src="logo.png" alt="Site Logo" style="height:60px;">
+        <img src="logo.png" alt="Site Logo">
       </div>
       <div class="site-info">
         <p>This area is for informational graphics which describe in images what your site is about.</p>
@@ -27,10 +27,8 @@ function loadNavigation() {
         <li><a href="news.html">News</a></li>
         <li><a href="offers.html">Offers</a></li>
         <li><a href="contact.html">Contact</a></li>
+        <li><a href="social.html">Social</a></li>
       </ul>
     </nav>
   `;
-  document.body.prepend(header);
-}
-
-document.addEventListener("DOMContentLoaded", loadNavigation);
+  document
