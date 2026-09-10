@@ -1,37 +1,43 @@
-// navigation.js
+// Mobile navigation menu
+const menuToggle = document.getElementById("menu-toggle");
+const navLinks = document.getElementById("nav-links");
 
-function loadNavigation() {
-  const header = document.createElement("header");
-  header.innerHTML = `
-    <div class="top-bar">
-      <div class="logo">
-        <img src="logo.png" alt="Site Logo">
-      </div>
-      <div class="site-info">
-        <p>This area is for informational graphics which describe in images what your site is about.</p>
-      </div>
-    </div>
+// Open and close the mobile menu
+menuToggle.addEventListener("click", () => {
+    navLinks.classList.toggle("active");
+});
 
-    <nav class="primary-nav">
-      <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="about.html">About Me</a></li>
-        <li><a href="resume.html">Resume</a></li>
-        <li><a href="experience.html">Experience</a></li>
-        <li><a href="personal.html">Personal</a></li>
-      </ul>
-    </nav>
+// Close the menu when a navigation link is clicked
+const links = navLinks.querySelectorAll("a");
 
-    <nav class="secondary-nav">
-      <ul>
-        <li><a href="news.html">News</a></li>
-        <li><a href="offers.html">Offers</a></li>
-        <li><a href="contact.html">Contact</a></li>
-        <li><a href="social.html">Social</a></li>
-      </ul>
-    </nav>
-  `;
-  document.body.prepend(header);
-}
+links.forEach(link => {
+    link.addEventListener("click", () => {
+        navLinks.classList.remove("active");
+    });
+});
 
-document.addEventListener("DOMContentLoaded", loadNavigation);
+// Highlight the section currently being viewed
+const sections = document.querySelectorAll("section");
+const navigationLinks = document.querySelectorAll(".nav-links a");
+
+window.addEventListener("scroll", () => {
+    let currentSection = "";
+
+    sections.forEach(section => {
+        const sectionTop = section.offsetTop - 150;
+        const sectionHeight = section.clientHeight;
+
+        if (window.scrollY >= sectionTop &&
+            window.scrollY < sectionTop + sectionHeight) {
+            currentSection = section.getAttribute("id");
+        }
+    });
+
+    navigationLinks.forEach(link => {
+        link.classList.remove("active");
+
+        if (link.getAttribute("href") === `#${currentSection}`) {
+            link.classList.add("active");
+        }
+    });
+});
