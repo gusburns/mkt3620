@@ -1,18 +1,142 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <link rel="stylesheet" href="style.css">
-  <script src="navigation.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marketing Portfolio | Iowa State University</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-  <div class="wrapper">
-    <h1>About Me</h1>
 
-    <p>
-      I’m a junior at Iowa State University majoring in Marketing, driven by a genuine interest in understanding people and how they connect with brands. Through my coursework and hands‑on experiences, I’ve built a strong foundation in communication, customer service, and strategic thinking. I’m passionate about building relationships, creating meaningful experiences, and finding creative ways to bring ideas to life. As I continue growing in the field, I’m excited to explore opportunities that challenge me, expand my skills, and help me make an impact in the world of marketing.
-    </p>
+    <!-- Navigation -->
+    <header>
+        <nav class="navbar">
+            <div class="logo">My Portfolio</div>
 
-  </div>
+            <button class="menu-toggle" id="menu-toggle" aria-label="Toggle navigation">
+                ☰
+            </button>
+
+            <ul class="nav-links" id="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About Me</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <main>
+        <section id="home" class="hero">
+            <div class="hero-content">
+                <p class="intro">MARKETING STUDENT • CREATIVE THINKER • RELATIONSHIP BUILDER</p>
+
+                <h1>Hi, I'm a Marketing Student at Iowa State University.</h1>
+
+                <p class="hero-text">
+                    Exploring the intersection of people, creativity, and brands.
+                </p>
+
+                <a href="#about" class="button">Learn More About Me</a>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="about section">
+            <div class="section-heading">
+                <p class="eyebrow">ABOUT ME</p>
+                <h2>Passionate About People & Marketing</h2>
+            </div>
+
+            <div class="about-content">
+                <div class="about-text">
+                    <p>
+                        I’m a junior at Iowa State University majoring in Marketing,
+                        driven by a genuine interest in understanding people and how
+                        they connect with brands. Through my coursework and hands-on
+                        experiences, I’ve built a strong foundation in communication,
+                        customer service, and strategic thinking.
+                    </p>
+
+                    <p>
+                        I’m passionate about building relationships, creating
+                        meaningful experiences, and finding creative ways to bring
+                        ideas to life. As I continue growing in the field, I’m excited
+                        to explore opportunities that challenge me, expand my skills,
+                        and help me make an impact in the world of marketing.
+                    </p>
+                </div>
+
+                <div class="skills">
+                    <h3>What I Bring</h3>
+                    <ul>
+                        <li>Communication</li>
+                        <li>Customer Service</li>
+                        <li>Strategic Thinking</li>
+                        <li>Relationship Building</li>
+                        <li>Creative Problem Solving</li>
+                        <li>Marketing Strategy</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Experience Section -->
+        <section id="experience" class="experience section">
+            <div class="section-heading">
+                <p class="eyebrow">EXPERIENCE</p>
+                <h2>Growing My Marketing Skills</h2>
+            </div>
+
+            <div class="cards">
+                <div class="card">
+                    <h3>Communication</h3>
+                    <p>
+                        Developing strong communication skills through coursework
+                        and hands-on experiences.
+                    </p>
+                </div>
+
+                <div class="card">
+                    <h3>Customer Experience</h3>
+                    <p>
+                        Learning how meaningful customer interactions can build
+                        stronger relationships with brands.
+                    </p>
+                </div>
+
+                <div class="card">
+                    <h3>Creative Strategy</h3>
+                    <p>
+                        Combining creativity and strategic thinking to develop
+                        ideas that connect with people.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="contact section">
+            <p class="eyebrow">LET'S CONNECT</p>
+            <h2>Interested in Working Together?</h2>
+            <p>
+                I'm always excited to connect with people, explore new opportunities,
+                and learn more about the world of marketing.
+            </p>
+
+            <a href="mailto:your-email@example.com" class="button">
+                Contact Me
+            </a>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2026 My Marketing Portfolio</p>
+    </footer>
+
+    <script src="script.js"></script>
 </body>
 </html>
