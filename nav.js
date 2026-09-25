@@ -1,43 +1,64 @@
-// Mobile navigation menu
-const menuToggle = document.getElementById("menu-toggle");
-const navLinks = document.getElementById("nav-links");
+// Shared navigation for all pages
 
-// Open and close the mobile menu
-menuToggle.addEventListener("click", () => {
-    navLinks.classList.toggle("active");
-});
+const navContainer = document.getElementById("site-nav");
 
-// Close the menu when a navigation link is clicked
-const links = navLinks.querySelectorAll("a");
+if (navContainer) {
+    navContainer.innerHTML = `
+        <header>
+            <nav class="navbar">
+                <a href="index.html" class="logo">GUS BURNS</a>
 
-links.forEach(link => {
-    link.addEventListener("click", () => {
-        navLinks.classList.remove("active");
-    });
-});
+                <button
+                    class="menu-toggle"
+                    id="menu-toggle"
+                    aria-label="Open navigation menu"
+                    aria-expanded="false">
+                    ☰
+                </button>
 
-// Highlight the section currently being viewed
-const sections = document.querySelectorAll("section");
-const navigationLinks = document.querySelectorAll(".nav-links a");
+                <ul class="nav-links" id="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About Me</a></li>
+                    <li><a href="experience.html">Experience</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </header>
+    `;
 
-window.addEventListener("scroll", () => {
-    let currentSection = "";
-
-    sections.forEach(section => {
-        const sectionTop = section.offsetTop - 150;
-        const sectionHeight = section.clientHeight;
-
-        if (window.scrollY >= sectionTop &&
-            window.scrollY < sectionTop + sectionHeight) {
-            currentSection = section.getAttribute("id");
-        }
-    });
+    // Identify the current page
+    const currentPage = window.location.pathname.split("/").pop() || "index.html";
+    const navigationLinks = document.querySelectorAll(".nav-links a");
 
     navigationLinks.forEach(link => {
-        link.classList.remove("active");
+        const linkPage = link.getAttribute("href");
 
-        if (link.getAttribute("href") === `#${currentSection}`) {
+        if (linkPage === currentPage) {
             link.classList.add("active");
+            link.setAttribute("aria-current", "page");
         }
     });
-});
+
+    // Mobile menu
+    const menuToggle = document.getElementById("menu-toggle");
+    const navLinks = document.getElementById("nav-links");
+
+    menuToggle.addEventListener("click", () => {
+        const isOpen = navLinks.classList.toggle("active");
+
+        menuToggle.setAttribute("aria-expanded", isOpen);
+        menuToggle.setAttribute(
+            "aria-label",
+            isOpen ? "Close navigation menu" : "Open navigation menu"
+        );
+    });
+
+    // Close mobile menu after clicking a link
+    navigationLinks.forEach(link => {
+        link.addEventListener("click", () => {
+            navLinks.classList.remove("active");
+            menuToggle.setAttribute("aria-expanded", "false");
+            menuToggle.setAttribute("aria-label", "Open navigation menu");
+        });
+    });
+}
