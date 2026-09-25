@@ -1,4 +1,7 @@
-/* General Styles */
+/* ================================
+   GENERAL STYLES
+================================ */
+
 * {
     margin: 0;
     padding: 0;
@@ -16,7 +19,19 @@ body {
     line-height: 1.7;
 }
 
-/* Navigation */
+a {
+    color: inherit;
+}
+
+main {
+    min-height: 70vh;
+}
+
+
+/* ================================
+   NAVIGATION
+================================ */
+
 header {
     position: sticky;
     top: 0;
@@ -38,6 +53,7 @@ header {
     font-size: 1.3rem;
     font-weight: bold;
     color: #822433;
+    text-decoration: none;
 }
 
 .nav-links {
@@ -47,25 +63,42 @@ header {
 }
 
 .nav-links a {
+    position: relative;
     text-decoration: none;
     color: #333;
     font-weight: 600;
     transition: color 0.3s ease;
 }
 
-.nav-links a:hover {
+.nav-links a:hover,
+.nav-links a.active {
     color: #822433;
+}
+
+.nav-links a.active::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -7px;
+    height: 2px;
+    background-color: #822433;
 }
 
 .menu-toggle {
     display: none;
     border: none;
     background: none;
+    color: #822433;
     font-size: 1.8rem;
     cursor: pointer;
 }
 
-/* Hero */
+
+/* ================================
+   HERO
+================================ */
+
 .hero {
     min-height: 90vh;
     display: flex;
@@ -73,12 +106,14 @@ header {
     justify-content: center;
     text-align: center;
     padding: 80px 25px;
+
     background: linear-gradient(
         135deg,
         #822433 0%,
         #a73a4d 50%,
         #d4a84f 100%
     );
+
     color: white;
 }
 
@@ -105,7 +140,44 @@ header {
     margin-bottom: 35px;
 }
 
-/* Buttons */
+
+/* ================================
+   PAGE HERO
+================================ */
+
+.page-hero {
+    text-align: center;
+    padding: 100px 25px;
+    background: linear-gradient(
+        135deg,
+        #822433,
+        #a73a4d
+    );
+    color: white;
+}
+
+.page-hero .eyebrow {
+    color: #f3d98b;
+}
+
+.page-hero h1 {
+    max-width: 900px;
+    margin: 0 auto 20px;
+    font-size: clamp(2.3rem, 5vw, 4rem);
+    line-height: 1.1;
+}
+
+.page-hero p:last-child {
+    max-width: 650px;
+    margin: auto;
+    font-size: 1.15rem;
+}
+
+
+/* ================================
+   BUTTONS
+================================ */
+
 .button {
     display: inline-block;
     padding: 13px 28px;
@@ -122,7 +194,11 @@ header {
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
 }
 
-/* Sections */
+
+/* ================================
+   SECTIONS
+================================ */
+
 .section {
     max-width: 1100px;
     margin: auto;
@@ -143,12 +219,45 @@ h2 {
     line-height: 1.2;
 }
 
-/* About */
+
+/* ================================
+   HOME
+================================ */
+
+.home-content {
+    max-width: 800px;
+    margin: auto;
+}
+
+.home-content p {
+    margin-bottom: 25px;
+    font-size: 1.1rem;
+}
+
+.cta-section {
+    padding: 90px 25px;
+    text-align: center;
+    background-color: #eeeae2;
+}
+
+.cta-section h2 {
+    margin-bottom: 30px;
+}
+
+
+/* ================================
+   ABOUT
+================================ */
+
 .about-content {
     display: grid;
     grid-template-columns: 2fr 1fr;
     gap: 60px;
     align-items: start;
+}
+
+.about-text h2 {
+    margin-bottom: 25px;
 }
 
 .about-text p {
@@ -177,13 +286,10 @@ h2 {
     border-bottom: 1px solid #eee;
 }
 
-/* Experience */
-.experience {
-    background-color: #eeeae2;
-    max-width: none;
-    padding-left: max(25px, calc((100% - 1050px) / 2));
-    padding-right: max(25px, calc((100% - 1050px) / 2));
-}
+
+/* ================================
+   EXPERIENCE
+================================ */
 
 .cards {
     display: grid;
@@ -196,6 +302,7 @@ h2 {
     padding: 35px;
     border-radius: 15px;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
 }
 
 .card:hover {
@@ -208,21 +315,70 @@ h2 {
     margin-bottom: 15px;
 }
 
-/* Contact */
-.contact {
+.experience-extra {
+    background-color: #eeeae2;
+    max-width: none;
+}
+
+.skill-grid {
+    max-width: 1050px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+}
+
+.skill-item {
+    background-color: white;
+    padding: 30px;
+    border-radius: 15px;
+}
+
+.skill-item h3 {
+    color: #822433;
+    margin-bottom: 12px;
+}
+
+
+/* ================================
+   CONTACT / GOOGLE FORM
+================================ */
+
+.contact-form-section {
+    max-width: 950px;
+    margin: auto;
+    padding: 80px 25px;
+}
+
+.form-intro {
     text-align: center;
-    max-width: 750px;
+    margin-bottom: 35px;
 }
 
-.contact h2 {
-    margin-bottom: 20px;
+.form-intro h2 {
+    margin-bottom: 15px;
 }
 
-.contact p {
-    margin-bottom: 30px;
+.form-container {
+    background-color: white;
+    border-radius: 15px;
+    padding: 15px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+    overflow: hidden;
 }
 
-/* Footer */
+.form-container iframe {
+    display: block;
+    width: 100%;
+    min-height: 900px;
+    border: none;
+}
+
+
+/* ================================
+   FOOTER
+================================ */
+
 footer {
     text-align: center;
     padding: 30px;
@@ -230,17 +386,25 @@ footer {
     color: white;
 }
 
-/* Mobile Navigation */
+
+/* ================================
+   MOBILE RESPONSIVENESS
+================================ */
+
 @media (max-width: 768px) {
+
+    .navbar {
+        padding: 16px 20px;
+    }
+
     .menu-toggle {
         display: block;
-        color: #822433;
     }
 
     .nav-links {
         display: none;
         position: absolute;
-        top: 70px;
+        top: 65px;
         left: 0;
         width: 100%;
         background-color: white;
@@ -263,6 +427,23 @@ footer {
         padding: 15px;
     }
 
+    .nav-links a.active::after {
+        display: none;
+    }
+
+    .hero {
+        min-height: 80vh;
+        padding: 70px 20px;
+    }
+
+    .page-hero {
+        padding: 75px 20px;
+    }
+
+    .section {
+        padding: 70px 20px;
+    }
+
     .about-content {
         grid-template-columns: 1fr;
         gap: 35px;
@@ -270,5 +451,21 @@ footer {
 
     .cards {
         grid-template-columns: 1fr;
+    }
+
+    .skill-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .contact-form-section {
+        padding: 60px 15px;
+    }
+
+    .form-container {
+        padding: 5px;
+    }
+
+    .form-container iframe {
+        min-height: 950px;
     }
 }
